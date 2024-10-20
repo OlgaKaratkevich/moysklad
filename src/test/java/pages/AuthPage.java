@@ -28,6 +28,6 @@ public class AuthPage extends BasePage{
 
     @Override
     public boolean isOpened() {
-        return driver.findElement(By.xpath("//div[@class='b-page-info']/h1[@text()='Вход в МойСклад'")).isDisplayed();
+        return isExist(SUBMIT_BUTTON);
     }
 }
