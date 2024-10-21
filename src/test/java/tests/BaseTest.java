@@ -5,8 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.AuthPage;
-import pages.HomePage;
+import pages.*;
+
 
 import java.time.Duration;
 
@@ -15,6 +15,8 @@ public abstract class BaseTest {
     protected WebDriver driver;
     protected AuthPage authPage;
     protected HomePage homePage;
+    protected TopMenuPage topMenuPage;
+    protected UserSettingsPage userSettingsPage;
 
     @BeforeMethod
     public void setUp() {
@@ -24,6 +26,8 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         authPage = new AuthPage(driver);
         homePage = new HomePage(driver);
+        topMenuPage = new TopMenuPage(driver);
+        userSettingsPage = new UserSettingsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
