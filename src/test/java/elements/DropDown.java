@@ -7,7 +7,6 @@ public class DropDown {
     protected WebDriver driver;
     protected String label;
     protected String dropDownLocator = "//span[text() = '%s']/ancestor::tr[@class]//input";
-    protected String optionLocator = "//div[text() = '%s']";
 
     public DropDown(WebDriver driver, String label) {
         this.driver = driver;
