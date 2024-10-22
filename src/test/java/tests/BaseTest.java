@@ -1,5 +1,6 @@
 package tests;
 
+import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +11,7 @@ import pages.*;
 
 import java.time.Duration;
 
+@Data
 public abstract class BaseTest {
 
     protected WebDriver driver;
@@ -17,6 +19,8 @@ public abstract class BaseTest {
     protected HomePage homePage;
     protected TopMenuPage topMenuPage;
     protected UserSettingsPage userSettingsPage;
+    private String name = "admin@uxtov";
+    private String password = "qwerty11";
 
     @BeforeMethod
     public void setUp() {
