@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class SettingsTest extends BaseTest{
 
-    @Test
+    @Test(description = "Успешное изменение настроек пользователя")
     public void changeUserInfo() {
         authPage.open();
         authPage.inputLoginAndPassword(getName(), getPassword());

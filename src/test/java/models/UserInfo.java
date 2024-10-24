@@ -1,5 +1,6 @@
-package elements;
+package models;
 
+import elements.Input;
 import lombok.AllArgsConstructor;
 import org.openqa.selenium.WebDriver;
 

@@ -1,17 +1,19 @@
 package tests;
 
-import lombok.Data;
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.*;
-
+import pages.AuthPage;
+import pages.HomePage;
+import pages.TopMenuPage;
+import pages.UserSettingsPage;
 
 import java.time.Duration;
 
-@Data
+
 public abstract class BaseTest {
 
     protected WebDriver driver;
@@ -19,7 +21,9 @@ public abstract class BaseTest {
     protected HomePage homePage;
     protected TopMenuPage topMenuPage;
     protected UserSettingsPage userSettingsPage;
+    @Getter
     private String name = "admin@uxtov";
+    @Getter
     private String password = "qwerty11";
 
     @BeforeMethod

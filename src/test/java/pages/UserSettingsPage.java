@@ -1,6 +1,6 @@
 package pages;
 
-import elements.UserInfo;
+import models.UserInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
