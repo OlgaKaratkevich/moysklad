@@ -1,21 +1,18 @@
 package models;
 
-import elements.Input;
 import lombok.AllArgsConstructor;
-import org.openqa.selenium.WebDriver;
+import lombok.Builder;
+import lombok.Getter;
 
 @AllArgsConstructor
-public class UserInfo extends UserInfoOptions {
+@Builder
+@Getter
+public class UserInfo extends UserInfoBuilder {
 
-    protected WebDriver driver;
-
-    public void inputUserInfo() {
-        new Input(driver, "Имя").write(name);
-        new Input(driver, "Отчество").write(patronymic);
-        new Input(driver, "Фамилия").write(lastName);
-        new Input(driver, "Телефон").write(phone);
-        new Input(driver, "Должность").write(position);
-    }
-
-
+    private String name;
+    private String patronymic;
+    private String lastname;
+    private String phone;
+    private String position;
+    private String customer;
 }

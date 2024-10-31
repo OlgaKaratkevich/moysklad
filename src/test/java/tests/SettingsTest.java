@@ -1,6 +1,7 @@
 package tests;
 
-import org.openqa.selenium.By;
+import models.UserInfo;
+import models.UserInfoBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,11 +14,11 @@ public class SettingsTest extends BaseTest{
         authPage.clickLoginButton();
         homePage.isOpened();
         topMenuPage.selectMenuBarOption("Настройки пользователя");
-        userSettingsPage.inputUserInfo();
+        UserInfo userInfo = UserInfoBuilder.get();
+        userSettingsPage.inputUserInfo(userInfo);
         userSettingsPage.clickSaveButton();
         driver.navigate().refresh();
-        String settingsName = driver.findElement(By.xpath("//span[text() = 'Фамилия']/ancestor::tr[@class]//input")).getAttribute("value");
-        boolean menuBarNameContainsSettingsName = driver.findElement(By.xpath("//div[@class='menu-username-new']")).getText().contains(settingsName);
-        Assert.assertTrue(menuBarNameContainsSettingsName);
+        String lastName = userSettingsPage.getInputText("Фамилия");
+        Assert.assertTrue(topMenuPage.getUserName().contains(lastName));
     }
 }

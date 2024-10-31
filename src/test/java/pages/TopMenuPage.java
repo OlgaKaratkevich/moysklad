@@ -20,4 +20,8 @@ public class TopMenuPage extends BasePage {
         driver.findElement(MENU_USERNAME).click();
         driver.findElement(By.xpath(String.format(menuBarOption, option))).click();
     }
+
+    public String getUserName(){
+        return driver.findElement(By.xpath("//div[@class='menu-username-new']")).getText();
+    }
 }
