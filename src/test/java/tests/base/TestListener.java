@@ -1,21 +1,23 @@
 package tests.base;
 
+import lombok.extern.log4j.Log4j2;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+@Log4j2
 public class TestListener implements ITestListener{
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.printf("Test  %s started %n", result.getName());
+        log.info("Test {} started", result.getName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.printf("Test  %s success %n", result.getName());
+        log.info("Test {} success", result.getName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.printf("Test  %s failed %n", result.getName());
+        log.info("Test  {} failed", result.getName());
     }
 }

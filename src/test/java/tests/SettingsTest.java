@@ -1,11 +1,12 @@
 package tests;
 
+import org.testng.annotations.Test;
 import models.UserInfo;
 import models.UserInfoBuilder;
-import org.junit.Test;
 import org.testng.Assert;
+import tests.base.BaseTest;
 
-public class SettingsTest extends BaseTest{
+public class SettingsTest extends BaseTest {
 
     @Test(description = "Успешное изменение настроек пользователя")
     public void changeUserInfo() {

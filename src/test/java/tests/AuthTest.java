@@ -1,13 +1,24 @@
 package tests;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class AuthTest extends BaseTest{
+public class AuthTest extends BaseTest {
 
+    @DataProvider(name = "Negative tests")
 
-    @Test(description = "успешная авторизации при вводе валидных данных")
+    public Object[][] inputForLogin() {
+        return new Object[][]{
+                {"", ""},
+                {"login@login", "password"},
+        };
+    }
+
+    @Test(description = "Successful authorisation when entering valid data")
     public void loginUsingValidData(){
         authPage.open();
         authPage.inputLoginAndPassword(getName(), getPassword());
@@ -15,4 +26,14 @@ public class AuthTest extends BaseTest{
         boolean homePageOpened = homePage.isOpened();
         assertTrue(homePageOpened);
     }
+
+    @Test(description = "Unsuccessful authorisation when entering invalid data", dataProvider = "Negative tests")
+    public void shouldNotBeAuthorisedWhenEnteringInvalidData(String login, String password, String error) {
+        authPage.open();
+        authPage.inputLoginAndPassword(login, password);
+        authPage.clickLoginButton();
+        String errorMessage = authPage.getErrorMessage();
+        assertEquals(errorMessage, error, "Error, invalid login or password!");
+    }
+
 }
