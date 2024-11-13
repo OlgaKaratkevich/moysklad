@@ -13,8 +13,8 @@ public class AuthTest extends BaseTest {
 
     public Object[][] inputForLogin() {
         return new Object[][]{
-                {"", ""},
-                {"login@login", "password"},
+                {"", "", "Чтобы войти, укажите имя пользователя"},
+                {"login@login", "password", "Неправильный пароль или имя пользователя. Посмотрите, что можно сделать."},
         };
     }
 
@@ -33,7 +33,7 @@ public class AuthTest extends BaseTest {
         authPage.inputLoginAndPassword(login, password);
         authPage.clickLoginButton();
         String errorMessage = authPage.getErrorMessage();
-        assertEquals(errorMessage, error, "Error, invalid login or password!");
+        assertEquals(errorMessage, error);
     }
 
 }
