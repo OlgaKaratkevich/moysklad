@@ -38,7 +38,7 @@ public class AuthPage extends BasePage{
         return isExist(SUBMIT_BUTTON);
     }
 
-    @Step("get error message")
+    @Step("Get error message")
     public String getErrorMessage() {
         log.info("get error message");
         return driver.findElement(ERROR_MESSAGE).getText();
