@@ -23,9 +23,12 @@ public class TopMenuPage extends BasePage {
     public void selectMenuBarOption(String option) {
         driver.findElement(MENU_USERNAME).click();
         driver.findElement(By.xpath(String.format(menuBarOption, option))).click();
+        log.info("Select option '{option}'");
     }
 
+    @Step("Get user name")
     public String getUserName(){
+        log.info("Get user name");
         return driver.findElement(By.xpath("//div[@class='menu-username-new']")).getText();
     }
 }

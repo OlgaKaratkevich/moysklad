@@ -21,16 +21,19 @@ public class AuthPage extends BasePage{
     public void inputLoginAndPassword(String name, String password) {
         driver.findElement(USERNAME).sendKeys(name);
         driver.findElement(PASSWORD).sendKeys(password);
+        log.info("Enter valid login and password");
     }
 
     @Step("Click login button")
     public void clickLoginButton() {
         driver.findElement(SUBMIT_BUTTON).click();
+        log.info("Click login button");
     }
 
     @Step("Open" + URL)
     public void open() {
         driver.get(URL);
+        log.info("Open" + URL);
     }
 
     @Override
